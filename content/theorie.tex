@@ -1,0 +1,163 @@
+\section{Zielsetzung}
+  Im Versuch wird die, durch den (an)normalen Zeeman-Effekt versuchsachte, Aufspaltung der Energieniveaus von Cadmium (Cd) mit einem geeigneten Versuchsaufbau visualisiert und die experimentel ermittelten Energiedifferenzen mit den theoretisch berechneten verglichen.
+
+
+\section{Theorie}
+\label{sec:Theorie}
+  Als Zeeman-Effekt wird das Phenomen bezeichnet, dass sich die diskreten Energieniveaus der Elektronen in Atomen unter Einfluss eines "au"seren Magnetfeldes $\vec{B}$ aufspalten.
+  Es wird zwischen normalem und annormalem Zeeman-Effekt unterschieden.
+
+
+  \subsection{Magnetisches Moment von Atomen}
+    Wegen der Ladung des Elektrons entstehen druch dessen Drehimpuls $\vec{l}$ bzw. Spin $\vec{s}$ magnetische Momente $\vec{\mu_l}$ und $\vec{\mu_s}$.
+    Mit den quantenmechanischen Erwartungswerten f"ur $l^2$ und $s^2$ folgen f"ur die Betr"age der mafgnetischen Momente:
+    \begin{align}
+      \begin{split}
+        |\vec{\mu_l}| &= \mu_l = -\mu_B\sqrt{l(l+1)} \\
+        |\vec{\mu_s}| &= \mu_s = -g_s\mu_B\sqrt{s(s+1)}
+      \end{split}
+    \end{align}
+    Dabei ist
+    \begin{equation}
+      \mu_B = -\frac{1}{2}e\frac{\hbar}{m_e}
+    \end{equation}
+    das sogenannte Bohr'sche Magneton und $g_s \approx 2$ ist der Lande-Faktor des Elektrons.
+    $l = 0,1,2,...,n-1$ (mit der Hauptquantenzahl $n$) und $s=\frac{1}{2}$ sind die Drehimpuls- und Spin Quantenzahl des Elektrons.
+
+    Um das magnetische Moment eines Atoms zu bestimmen, muss man nur die magnetischen Momente (druch Drehimpuls und Spin) der Elektronen der "au"seren Schale/Energieniveau ber"ucksichtigen, da sich der Gesamtspin und -drehimpuls von abgeschlossenen Schaalen nach den Hund'schen-Regeln zu 0 addieren.
+
+    F"ur die vorliegende Situation, dass die Ordungszahl des Atoms und angelegte "au"sere Magnetfelder nicht zu gro"s sind, kann angenommen werden, dass sich die Spins und Bahndrehimpulse aller beteiligten Elektronen vektoriell zum Gesamtdrehimpuls und Gesamtspin addieren
+    \begin{align}
+      \begin{split}
+        S &= \sum s_i\\
+        L &= \sum l_i \; ,
+      \end{split}
+    \end{align}
+    womit f"ur die magnetischen Momente gilt
+    \begin{align}
+      \begin{split}
+        |\vec{\mu_L}| &= \mu_L = -\mu_B\sqrt{L(L+1)} \\
+        |\vec{\mu_S}| &= \mu_S = -g_S\mu_B\sqrt{S(S+1)} \; .
+      \end{split}
+    \end{align}
+    $S$ und $L$ sind nun die Quantenzahlen des Atoms.
+
+    Da sich der Gesamtdrehimpuls $J$ durch $J=L+S$ ergibt, folgt f"ur das gesamte magnetische Moment des Atoms
+    \begin{align}
+      \begin{split}
+        \mu_J = \mu_L + \mu_S = g_J \mu_B \sqrt{J(J+1)}
+      \end{split}
+    \end{align}
+    mit dem Lande-Faktor $g_J$ des betreffenden Atoms:
+    \begin{equation}
+      g_J = \frac{3J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} = 1 \; \text{f"ur S=0}
+      \label{g_J}
+    \end{equation}
+
+
+  \subsection{Zeeman-Effekt}
+    Hat ein Atom das magnetische Moment $\mu_J$, erh"ahlt dieses die zus"atzliche Energie
+    \begin{equation}
+      E_{mag} = -\vec{\mu_J} \cdot \vec{B}
+    \end{equation}
+    im Magnetfeld $\vec{B}$.
+
+    Es k"onnen nur Winkel zwischen $\vec{\mu_J}$ und $\vec{B}$ auftreten (Richtungsquantelung) bei denen f"ur die Komponente $\mu_{{J_z}||}$ parallel zur Feldrichtung gilt:
+    \begin{equation}
+      \mu_{{J_z}||} = -mg_J\mu_B\;,\;, -J \leq m \leq J
+    \end{equation}
+    Daraus folgt
+    \begin{equation}
+      E_{mag} = mg_J\mu_BB \; .
+    \end{equation}
+    Die Energiedifferenz zweier durch den Zeeman-Effekt aufgespaltenen Energieniveaus/Zust"ande ist daher
+    \begin{equation}
+    \delta E = (m_ig_{J,i}-m_jg_{J_j})\mu_BB = g_{ij} \mu_BB \; .
+    \label{g_ij} 
+    \end{equation}
+    %mit der Energiedifferenz ohne B-Feld $\delta E_0$.
+    $g_{ij}$ ist folglich der Lande-Faktor des "Ubergangs $i \leftrightarrow j$.
+    %$\delta E$ ist genau die Energie des Photons, das beim "Ubergang zwischen dem Zustand/der Wellenfunktion $\Psi_i$ und $\Psi_j$ ausgestrahlt wird.
+
+  %  F"ur $S =0$ (normaler Zeeman-Effekt) ist $g_J=1$ und
+  %  \begin{equation}
+  %    E_{mag} =  m\mu_BB .
+  %  \end{equation}
+  %  F"ur $S \neq 0$ (annormaler Zeeman-Effekt) gilt
+
+\iffalse
+  \subsection{Der Zeeman-Effekt}
+    Hat ein Atom ein magnetisches momen mue, wird erhaelt dieses zus"atzliche energie Emag=-mujB im aeusseren magnetfeld.
+    res koennen nur winkel zwischen mue und b auftreten koennen. bei denen mujz =  ist (Richtungsquantelung), m ist debei element -j bis j.
+    Damit wird e mag zu :
+
+    F"ur S=0 ist gj immer 1 (normaler zeeman effekt), fuer s =/= ist gj = ... - gji (annormaler zeeman effekt)
+\fi
+
+
+
+  \subsection{Auswahlregeln f"ur die Quantenzahl $m$ bei den "Uberg"angen mit Zeeman-Effekt}
+    Durch Betrachtung der "Ubergangswahrscheinlichkeit zwischen dem Zustand $\Psi_1$ und $\Psi_2$ zeigt sich, dass nur "Uberg"ange mit
+    \begin{equation}
+      \Delta m = m_1 - m_2= \pm1,0
+    \end{equation}
+     m"oglich sind.
+    "Uberg"ange mit $\Delta m = 0$ ($\pi$-"Uberg"ange) emittieren lineares, parallel zu $\vec{B}$ polarisiertes Licht.
+    Bei "Uberg"angen mit $\Delta m = \pm 1$ ($\sigma$-"Uberg"ange) wird zirkular um die B-Feld-Achse polarisiertes Licht erzeugt.
+
+  \subsection{"Uberg"ange der Cadmium Lampe}
+    Im Experiment werdem der normale und annormale Zeeman-Effekt verifiziert, indem die Spektraliniern Aufspaltung einer Cadmium-Lampe im Magnetfeld visualisiert wird.
+    Es werden die zwei "Uberg"ange $^1P_1 \leftrightarrow ^1D_2$ (rotes Licht mit $\lambda = \SI{643,8}{\nano \meter}$, normaler Zeeman-Effekt) und $^1S_1 \leftrightarrow ^3P_1$ (blaues Licht mit $\lambda = \SI{480,0}{\nano \meter}$, annormaler Zeeman-Effekt) untersucht, welche sich nach dem Anglegen des Magnetfeldes nach dem Zeeman-Effekt aufspalten.
+
+    Die theoretischen Lande-Faktoren der einzelnen Energie-Niveaus $g_1$ und $g_2$ sowie die Lande-Faktoren $g_{ij}$ der $\pi$- und $\sigma$-"Uberg"ange sind f"ur den urspr"unglichen $^1P_1 \leftrightarrow ^1D_2$ "Ubergang sind in Tabelle (\ref{rot}) und f"ur den urspr"unglichen $^1S_1 \leftrightarrow ^3P_1$ "Ubergang  in Tabelle (\ref{blau}) dargestellt.
+    Die $g_{1,2}$ werden nach Formel (\ref{g_J}) berechnet.
+
+    \begin{table}
+    	\centering
+    	\begin{tabular}{c|cc|cc|c}
+    		%\toprule
+    		Übergang & $m_1$  & $g_{1}$ & $m_2$ & $ g_2$ & $g_{12}$\\
+    		\midrule
+    		& \multicolumn{2}{c}{${}^1P_1$}  & \multicolumn{2}{c}{${}^1D_2$} \\
+    		\midrule
+    		& 2 & 1 & 1 & 1 & 1\\
+    		$\sigma$& 1 & 1 & 0 & 1 & 1\\
+    		& 0 & 1 & -1 & 1 & 1\\
+    		\midrule
+    		& 1 & 1 & 1 & 1 & 0\\
+    		$\pi$ & 0 & 1 & 0 & 1 & 0\\
+    		& -1 & 1 & -1 & 1 & 0\\
+    		\midrule
+    		& 0 & 1 & 1 & 1 & -1\\
+    		$\sigma$ & -1 & 1 & 0 & 1 & -1\\
+    		& -2 & 1 & -1 & 1 & -1\\\bottomrule
+    	\end{tabular}
+    	\caption{Lande-Faktoren f"ur den roten "Ubergang.}
+    	\label{rot}
+    \end{table}
+    \begin{table}
+    	\centering
+    	\begin{tabular}{c|cc|cc|c}
+    		%\toprule
+    		Übergang & $m_1$  & $g_{1}$ & $m_2$ & $ g_2$ & $g_{12}$\\
+    		\midrule
+    		& \multicolumn{2}{c}{${}^3S_1$}  & \multicolumn{2}{c}{${}^3P_2$} \\
+    		\midrule
+    		$\sigma$ & +1 & 2 & 0 & $\frac{3}{2}$& 2\\
+    		& 0 & 2 & -1 & $\frac{3}{2}$ & $\frac{3}{2}$\\
+    		\midrule
+    		& +1 & 2 & +1 & $\frac{3}{2}$ & $\frac{1}{2}$\\
+    		$\pi$ & 2 & 2 & 0 & $\frac{3}{2}$ & 0 \\
+    		& -1 & 2 & -1 & $\frac{3}{2}$ & -$\frac{1}{2}$\\
+    		\midrule
+    		& 0 & 2 & 1 & $\frac{3}{2}$ & -$\frac{3}{2}$\\
+    		$\sigma$ & -1 & 2 & 0 & $\frac{3}{2}$& -2\\
+    		\bottomrule
+    	\end{tabular}
+    	\caption{Lande-Faktoren f"ur den blauen "Ubergang.}
+    	\label{blau}
+    \end{table}
+
+
+
+    .
