@@ -1,0 +1,128 @@
+Titelblatt
+persönliche Vorstellung
+
+Einleitung:
+Themenübersicht
+
+Motivation:
+
+Wieso Polymere?
+- wirtschaftliches Interesse an synthetischen Polymeren, wie PE, PVC, PS
+die aus dem heutigen Alltag nicht wegzudenken sind
+- in dieser Arbeit werden jedoch Polymermodelle (größer, L_c~100 mikrometer) betrachtet, die
+sich eher auf biologische Polymere anwenden lassen
+ ->z.B. Aktinfilamente, die u.a. das Zellskelett stabilisieren
+ und an Transportprozessen beteiligt sind
+ -> Mikrotubuli
+
+ Wieso kNN?
+ - Modell zwar schon länger bekannt, aber erst seit kurzem populär,
+durch Entwicklung von Grafikprozessoren, die für Matrixoperationen optimiert sind
+- erfolgreicher Einsatz bei der Unterscheidung von Phasen in anderen Systemen,
+wie  beispielsweise am 2d-Ising Modell oder am Hubbard Modell
+- Ähnlichkeit zu Renormierungsgruppenmethoden, die zur Untersuchung
+skalenabhängiger Phänomene in der theoretischen Physik bereits verwendet
+werden
+
+Ablaufschema
+
+Polymere:
+Grundlagen
+Erklärung am Bild
+- setzen sich aus Monomeren zusammen, die Anzahl dieser wird auch als
+Polymerisationsgrad N bezeichnet
+- jedes Monomer besteht aus einem bead, das ein Atom repräsentiert und
+aus einem bond, der den Abstand zweier aufeinanderfolgenden Atome charakterisiert
+- die Summe über alle Bondvektoren wird als End-zu-End Abstand bezeichnet
+
+mq EzE Abstand:
+- Der Erwartungswert einer Observable O, ist die Summe über alle Konfigurationen,
+mal zugehörigem Boltzmannfaktor geteilt durch die Zustandssumme
+- die kanonische Zustandssumme ist als die Summe über alle Konfigurationen
+- der mittlere quadratische End zu End Abstand berechnet sich durch b Quadrat
+mal die Summe über alle Erwartungswerte für die Winkel zwischen den bonds
+i,j .
+- die zentrale Größe dieser Arbeit ist die Persistenzlänge, die angibt, wie
+stark zwei Tangenten korreliert sind. Sie stellt eine Art Zerfallszeit entlang
+der Kette dar.
+
+Regime:
+Es wird immer die Persistenzlänge im Vergleich zur Kontourlänge betrachtet.
+Die Kontourlänge ist die gesamte Länge der Kette.
+Ist die Kontourlänge wesentlich größer als die Persistenzlänge, spricht man
+von einem flexiblen Polymer. Ist die Kontourlänge in der gleichen Größenordnung,
+wie die Persistenzlänge so spricht man von einem semiflexiblen Polymer.
+Ist die Persistenzlänge schließlich wesentlich größer, als die
+Kontourlänge,so spricht man von einem steifen Polymer.
+
+WLC:
+Die Wormlike Chain, auf deutsch wurmartige Kette, ist das Modell, das in
+der Arbeit benutzt wurde. Es ist dadurch charakterisiert, dass dem Polymer
+eine Biegesteifigkeit kappa zugeteilt wird. Dieses führt dazu, dass sich das
+Polymer gegen eine Verbiegung wehrt und kann durch das Produkt aus
+Elastizitätsmodul E und Flächenheitstragmoment I berechnet werden.
+
+Die Biegenergie zwischen zwei Bonds ist Bondlänge b mal eins minus
+der Kosinus des Winkels zwischen den beiden. Dies kann man sich auch
+anschaulich folgendermaßen motivieren. Zeigen beide in die gleiche
+Richtung, so ist der Winkel zwischen den beiden 0° und somit der Kosinus
+eins. Insgesamt liegt dann also keine Biegeenergie vor. Der andere
+Extremfall tritt auf, wenn die beiden senkrecht zueinander stehen. Dann
+ist der Kosinus 0 und somit die Biegeenergie maximal und zwar kappa
+durch b.
+
+Entlang der Kette summiert man nun über alle Bondenergien benachbarter
+Bonds und erhält so die Gesamtbiegeenergie.
+
+Durch eine aufwendige Rechnung kann man dann einen analytischen Zusammenhang
+zwischen der Biegesteifigkeit und der Persistenzlänge berechnen. Bei
+Kenntnis der Temperatur und der Bondlänge b sind die beiden also äquivalent.
+
+
+Monte-Carlo Simulation:
+Zur Simulation wurde eine Monte Carlo Simulation benutzt. Diese eignet sich zur
+Berechnung von Erwartungswerten, die sonst analytische nur schwer
+oder gar nicht berechenbar sind. Der Vorteil dieser ist es, dass aus
+dem sonst unhandlich Ausdruck ein einfacher Mittelwert über alle erzeugten
+Zustände wird. Damit dies gewährleistet ist gibt es zwei Bedingungen.
+
+Die erste Bedingung ist die Ergodizität, diese bedeutet, dass es zu allen
+Zeiten der Simulation möglich sein muss, alle Zustände des Systems in einer
+endlichen Zeit zu erreichen.
+
+Nach der zweiten Bedingung sollte sich das System im Thermodynamischen Gleichgewicht
+befinden. Dies bedeutet, dass keine Ströme mehr fließen sollten und führt auf
+die detailed balance Bedingung.
+m_ij ist die Wahrscheinlichkeit vom Zustand i in den Zustand j über zu gehen
+und p_i die Wahrscheinlichtkeit sich im Zustand i zu befinden.
+
+Metropolis-Algorithmus:
+Dem System wird ein Move, auf deutsch auch Spielzug, angeboten. Dieser muss
+im Allgemeinen jedoch nicht die reale Dynamik widerspiegeln. Die
+Übergangswahrscheinlichkeit wird dann aufgeteilt in eine Vorschlagswahrscheinlichkeit
+V_ij und eine Akzeptanzwahrscheinlichkeit A_ij.
+Die Vorschlagswahrscheinlichkeiten werden so gewählt, dass V_ij genauso
+groß ist, wie V_ji.
+Die Akzeptanzwahrscheinlichkeit wird über den Metropolis-Filter bestimmt.
+Dieser ist über das Minimum zwischen 1 und dem Bruch pj durch pi bestimmt.
+Man kann durch einsetzen zeigen, dass diese dann die detailed balance
+Bedingung erfüllen.
+Im Thermodynamischen Gleichgewicht ist die Wahrscheinlichkeit für einen
+Zustand proportional zu seinem Boltzmannfaktor. Setzt man dies ein,
+so kann man sich den Metropolis Filter auch folgendermaßen motivieren:
+Ist die vorgeschlagene neue Konfiguration energetisch günstiger, wird sie
+in jedem Fall angenommen. Ist sie jedoch energetisch teurer, nimmt die
+Wahrscheinlichkeit für diesen Zustand exponentiell ab.
+
+Monte-Carlo-Moves
+Zuerst wird ein zufälliger bead ausgewählt. Anschließend wird ein Vorschlagsmove
+gemacht. Das passiert hier durch die Drehung des von diesem bead ausgehenden
+Bondvektors, um den Winkel delta theta.
+Anschließend wird berechnet, wie sich dadurch die Energie ändern würde.
+Danach wird eine Fallunterscheidung gemacht. Ist delta E größer gleich
+null, ist der vorgeschlagene Zustand energetisch günstiger und wird angenommen.
+Andernfalls wird eine Zufallszahl zwischen 0 und 1 gezogen und wenn diese kleiner
+als e hoch (beta mal delta ) ist, wird der Zustand akzeptiert und ansonsten
+verworfen.
+
+Äquilibrierungszeit
