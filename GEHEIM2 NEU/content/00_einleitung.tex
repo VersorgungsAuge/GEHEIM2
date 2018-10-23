@@ -1,4 +1,4 @@
-w\section{Einleitung}
+%\section{Einleitung}
 
 \begin{frame}
 \frametitle{Inhaltsübersicht}
@@ -6,9 +6,197 @@ w\section{Einleitung}
 \end{frame}
 
 
-%\section{Einleitung}
+\section{Einleitung}
 \begin{frame}
-  \frametitle{Worum gehts? Motivation} %die mesten horen wahrscheinlch floquet theorie zum ersten mal, deshalb nochmal etwas genauer, worum es geht
+  \frametitle{Worum gehts?} %die mesten horen wahrscheinlch floquet theorie zum ersten mal, deshalb nochmal etwas genauer, worum es geht
+  \textbf{Motivation}
+    \begin{itemize}
+      \item Nur wenige quantenmechanische Systeme exakt analytisch l"osbar
+      \item Zeitabh"angige Systeme meistens nur im Rahmen der St"orungstheorie betrachtbar
+
+      $\rightarrow$ Beschr"anken auf Probleme, die periodisch in der Zeit sind
+    \end{itemize}
+
+  \textbf{Floquet-Theorie}
   \begin{itemize}
-    \item 
+    \item 1883 von Gaston Floquet
+    \item mathematische Theorie von linearen gew"ohnlichen DGL's der Form $\dot f(t)=A(t)f(t)$ mit $A(t)=A(t+T)$
+  \end{itemize}
+
+
+
+
 \end{frame}
+%im rahmen der floquet thoery kann man solche dgls dann l;sen  indem man die eigenwertgleichung fuer den neuen zeitabh op loest
+%in meiner arbeit hab ich das konkret aber nicht gebraucht. den einzelnen sowie die gekoppelten oszis konnte man mit anderen tricks loesen. mit der lsg konnte ich dan aber das floquet theorem bestaetigen, indem eben die quasie energien und floquet moden identifiziert werden.
+%anwendung der reulstate der floquet theorie hatte man aber bei den berechnungen der erwartungswerte der energie, wie sich zeigen wird
+
+\section{Grundlagen der Floquet-Theorie}
+%im rahmen der quantenmechanikn hier noch fur bel Hamiltonop
+\begin{frame}
+  \textbf{Floquet-Theorem} %kern der ganzen sache
+  \begin{itemize}
+    \item Schr"odinger-Gleichung mit periodischem Hamilton-Operator $H(t)=H(t+T)$
+    \begin{equation}
+      \text i\hbar \frac{\partial}{\partial t} \Psi_n(x,t) = H(t)\Psi_n(x,t)
+    \end{equation}
+
+    $\rightarrow$ L"osungen haben die Form
+    \begin{equation}
+      \Psi_n(x,t)=\exp\left(-\frac{\text i}{\hbar}\epsilon_nt\right)\Phi_n(x,t)
+    \end{equation}
+
+    \item Floquet-Moden $\Phi_n(x,t)=\Phi_n(x,t+T)$ und Quasienergien $\epsilon_n$
+  \end{itemize}
+  %bloch theorem der zeit
+
+  \textbf{Eigenwertproblem}
+  \begin{equation} %einsetzen des ansatzes in s glg
+    \epsilon_n \Phi_n(x,t) = \left(H(t)-\text i\hbar \partial t\right) \Phi_n(x,t)
+  \end{equation}
+  %bei oszis nicht gebraucht
+
+  \textbf{Mittlerer Erwartungswert der Energie } %zustand psi n
+  \begin{equation}%gemittelten erwartungswert berechenbar, ohne den eigentlichen zeitabhaengigen zu kennen, nur von den quasienergien abhaengig
+    \bar H_n = \epsilon_n-\omega \frac{\partial}{\partial \omega} \epsilon_n
+  \end{equation}
+  \begin{itemize}
+   \item $\omega=2\pi/T$
+ \end{itemize}
+\end{frame}
+
+
+
+
+
+
+\section{Periodisch getriebener harmonischer Oszillator}
+\begin{frame}
+  \textbf{Hamilton-Operator}
+  \begin{equation} %treibende kraft S beliebieg aber periodisch
+    H(t) = H(t+T) = \frac{p^2}{2m} + \frac{1}{2}m\omega_0^2x^2-S(t)x
+  \end{equation}
+  \textbf{L"osung der Schr"odinger-Gleichung}
+  \begin{enumerate}
+    \item Variablenwechsel $x \rightarrow y=x-\zeta(t)$ %so wie bei oszi in auserem e feld nur mit zeitabhaengiger verschiebeung
+    %impulsoperator aendert sich nicht, mit kettenregel ableitung bleibt identisch
+    \item Unit"are Transformation $\Psi(y,t) = \exp\left(\frac{\text i}{\hbar}m\dot \zeta(t) y\right)\Lambda(y,t)$
+    \item Unit"are Transformation  $\Lambda(y,t) = \exp\left(\frac{\text i}{\hbar}\int_0^tL(\zeta(t'),\dot \zeta(t'), t') \: \text d t'\right)\chi(y,t)$
+
+    $\rightarrow$ ungetriebener Oszillator $\chi(y,t)$
+  \end{enumerate}
+
+  %hier ergibt sich dann fuer chi die s gleichung des standart oszillators, dessen lsgen wir ja kenne, also ist mit den drei transformationen die lsg fur den getriebenen oszi bekannt
+  \begin{itemize}
+    \item $L(\zeta(t),\dot \zeta(t), t) = \frac{1}{2}m\dot \zeta(t)^2 - \frac{1}{2}m\omega_0^2\zeta(t)^2 + S(t)\zeta(t)$
+    \item   $m\ddot \zeta(t) + m\omega_0^2\zeta(t) - S(t) = 0$
+
+    $\rightarrow$ $\zeta(t)$ schwingt klassisch
+    %durch umstellen lagrangefunkt und klass bewegungsgleichung des getriebene oszis fuer verschiebung zeta identifiziert
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \textbf{Wellenfunktionen}
+  \begin{align}
+    &\Psi_n(x,t) = N_nH_n\left(\sqrt{\frac{m\omega_0}{\hbar}}(x-\zeta(t))\right) \exp\left[\frac{-m\omega_0}{2\hbar}(x-\zeta(t))^2\right] \notag\\
+    & \cdot \exp\left[\frac{\text i}{\hbar}\left(m\dot \zeta(t)(x-\zeta(t))-E_nt+\int_0^tL(\dot \zeta(t'),\zeta(t'),t')\:\text dt'\right)\right] \; ,
+    \; n \in \mathbb{N}_0
+    %um klassische lsg verschobene ungetriebene lsg mit extra phase
+    %treibende kraft geht stets ueber die lagrangefunktion ein
+  \end{align}
+  \begin{itemize}
+    \item $N_n = \left(\frac{m\omega_0}{\pi \hbar}\right) \frac{1}{\sqrt{2^nn!}}$,
+     $E_n = \hbar \omega_0(n+1/2)$ %eignenergien des ungetr oszis
+  \end{itemize}
+
+  \textbf{Floquet-Theorem}
+  %bisl umstellen um Floquet theorem zu bestaetigen
+  \begin{itemize}
+    \item Quasienergien $\epsilon_n = E_n - \frac{1}{T} \int_0^T L(\dot \zeta(t), \zeta(t), t) \: \text d t$
+    %alles lineare im exponenten, lagrangefunktion periodisch oder konstanter term, der nach integrieren linear in t ist
+    \item Floquet-Moden
+    \begin{align}
+        &\Phi_n(x,t) =
+         N_nH_n\left(\sqrt{\frac{m\omega_0}{\hbar}}(x-\zeta(t))\right) \exp\left[\frac{-m\omega_0}{2\hbar}(x-\zeta(t))^2\right] \notag\\
+        & \cdot \exp\left[\frac{\text i}{\hbar}\left(m\dot \zeta(t)(x-\zeta(t))+\int_0^tL(\dot \zeta(t'),\zeta(t'),t')\:\text d t'-\frac{t}{T} \int_0^T L(\dot \zeta(t),\zeta(t),t)\:\text dt\: \right)\right] \; ,\notag\\
+        & n \in \mathbb{N}_0
+    \end{align}
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Quasienergien f"ur sinusf"ormige Treibkraft}
+  \textbf{Treibkraft}
+  \begin{equation}
+    S(t)=A\sin(\omega t)
+  \end{equation}
+
+  \textbf{Klassische L"osung}
+  %EINE lsg, allgmeine homogene lsg=0 (nur noch die spezielle), um es einfach zu machen. wie die lsg tats"achlich aussieht, haengt natuerlich von anfangsbedingungen ab
+  \begin{equation}
+    \zeta(t) = \frac{A\sin(\omega t)}{m(\omega_0^2 - \omega^2)} \;
+  \end{equation}
+
+  \textbf{Quasienergien}
+  \begin{equation}
+    \epsilon_n  = E_n - \frac{A}{4m(\omega_0^2-\omega^2)} \;.
+  \end{equation}
+  %durch treibkraft konstant verschoben, mittelwert h divergiert wenn treibfrequenz omega nahe an oszieigenfrequenz omega_0
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quasienergien f"ur beliebige Treibkraft}
+  \textbf{Treibkraft}%bel periodische funktion, rechteck, dreieck
+  %furierreihenansatz
+  \begin{equation}
+    S(t) = \sum_{j=-\infty}^\infty c_j \text e^{\text ij\omega t}, \; c_j = \frac{1}{T} \int_0^T S(t) \text e^{-\text ij\omega t} \: \text d t
+  \end{equation}
+
+  %gleichen ansatz fur klassische lsg, nur andere koeff, danneinsetzen in begsglg ung koefvergleich
+  \textbf{Klassische L"osung}
+  \begin{equation}
+    \zeta(t) = \sum_{j=-\infty}^\infty d_j \text e^{\text ij\omega t}
+  \end{equation}
+
+
+  %lagrangefkt bilden -> doppelsummen wegen quadrat->linearer teil des integrals rauskriegen und dann wie oben bilden (das auser die E_n ist ja der lin teil)
+  \textbf{Quasienergien}
+  \begin{align}
+    \begin{split}
+      \epsilon_n &= \hbar \omega_0\left(n+\frac{1}{2}\right) - \sum_{j \in \mathbb(Z)} \frac{c_jc_{-j}}{2m(\omega_0^2-j^2\omega^2)}
+    \end{split}
+  \end{align}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b
