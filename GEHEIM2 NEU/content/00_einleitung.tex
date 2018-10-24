@@ -71,6 +71,7 @@
 
 
 \section{Periodisch getriebener harmonischer Oszillator}
+\subsection{L"osung}
 \begin{frame}
   \textbf{Hamilton-Operator}
   \begin{equation} %treibende kraft S beliebieg aber periodisch
@@ -81,19 +82,18 @@
     \item Variablenwechsel $x \rightarrow y=x-\zeta(t)$ %so wie bei oszi in auserem e feld nur mit zeitabhaengiger verschiebeung
     %impulsoperator aendert sich nicht, mit kettenregel ableitung bleibt identisch
     \item Unit"are Transformation $\Psi(y,t) = \exp\left(\frac{\text i}{\hbar}m\dot \zeta(t) y\right)\Lambda(y,t)$
+    \begin{itemize}
+      \item $L(\zeta(t),\dot \zeta(t), t) = \frac{1}{2}m\dot \zeta(t)^2 - \frac{1}{2}m\omega_0^2\zeta(t)^2 + S(t)\zeta(t)$
+      \item   $m\ddot \zeta(t) + m\omega_0^2\zeta(t) - S(t) = 0$
+
+      $\rightarrow$ $\zeta(t)$ schwingt klassisch
+      %durch umstellen lagrangefunkt und klass bewegungsgleichung des getriebene oszis fuer verschiebung zeta identifiziert
+    \end{itemize}
     \item Unit"are Transformation  $\Lambda(y,t) = \exp\left(\frac{\text i}{\hbar}\int_0^tL(\zeta(t'),\dot \zeta(t'), t') \: \text d t'\right)\chi(y,t)$
 
     $\rightarrow$ ungetriebener Oszillator $\chi(y,t)$
   \end{enumerate}
-
-  %hier ergibt sich dann fuer chi die s gleichung des standart oszillators, dessen lsgen wir ja kenne, also ist mit den drei transformationen die lsg fur den getriebenen oszi bekannt
-  \begin{itemize}
-    \item $L(\zeta(t),\dot \zeta(t), t) = \frac{1}{2}m\dot \zeta(t)^2 - \frac{1}{2}m\omega_0^2\zeta(t)^2 + S(t)\zeta(t)$
-    \item   $m\ddot \zeta(t) + m\omega_0^2\zeta(t) - S(t) = 0$
-
-    $\rightarrow$ $\zeta(t)$ schwingt klassisch
-    %durch umstellen lagrangefunkt und klass bewegungsgleichung des getriebene oszis fuer verschiebung zeta identifiziert
-  \end{itemize}
+  %hier ergibt sich dann fuer chi die stat schroed gleichung des standart oszillators, dessen lsgen wir ja kenne, also ist mit den drei transformationen die lsg fur den getriebenen oszi bekannt, die sind dan wegen chi auch auf r normiert, wenn man dan dort egen die richtige norm konstante nimmt
 \end{frame}
 
 \begin{frame}
@@ -103,7 +103,7 @@
     & \cdot \exp\left[\frac{\text i}{\hbar}\left(m\dot \zeta(t)(x-\zeta(t))-E_nt+\int_0^tL(\dot \zeta(t'),\zeta(t'),t')\:\text dt'\right)\right] \; ,
     \; n \in \mathbb{N}_0
     %um klassische lsg verschobene ungetriebene lsg mit extra phase
-    %treibende kraft geht stets ueber die lagrangefunktion ein
+    %treibende kraft geht stets ueber klass lsg und direkt ueber die die lagrangefunktion ein
   \end{align}
   \begin{itemize}
     \item $N_n = \left(\frac{m\omega_0}{\pi \hbar}\right) \frac{1}{\sqrt{2^nn!}}$,
@@ -126,7 +126,7 @@
 \end{frame}
 
 
-
+\subsection{Quasienergien}
 \begin{frame}
   \frametitle{Quasienergien f"ur sinusf"ormige Treibkraft}
   \textbf{Treibkraft}
@@ -166,12 +166,187 @@
   \textbf{Quasienergien}
   \begin{align}
     \begin{split}
-      \epsilon_n &= \hbar \omega_0\left(n+\frac{1}{2}\right) - \sum_{j \in \mathbb(Z)} \frac{c_jc_{-j}}{2m(\omega_0^2-j^2\omega^2)}
+      \epsilon_n &= \hbar \omega_0\left(n+\frac{1}{2}\right) - \sum_{j \in \mathbb Z} \frac{c_jc_{-j}}{2m(\omega_0^2-j^2\omega^2)}
     \end{split}
   \end{align}
 
 \end{frame}
 
+
+
+\subsection{Erwartungswerte}
+\begin{frame}
+  \frametitle{Ort}
+  \textbf{Betrag der Wellenfunktion}
+  \begin{equation}
+    |\Psi_n(x,t)|^2=|\Psi_{n,\text{ungetrieben}}(x-\zeta(t),t)|^2
+  \end{equation}
+
+  \textbf{Erwartungswerte}
+  \begin{itemize}
+    \item
+  \begin{align}
+    \begin{split}
+      \braket{x}_n &= \int_{-\infty}^{\infty} |\Psi_{n,\text{ung}}(x-\zeta(t),t)|^2 x \: \text dx
+      = \int_{-\infty}^{\infty} |\Psi_{n,\text{ung}}(y,t)|^2 (y+\zeta(t)) \: \text dy \\
+      &= \braket{y+ \zeta(t)}_{n,\text{ung}} = \braket{y}_{n,\text{ung}} + \zeta(t) = \zeta(t) \; .
+      \label{erwartungswert_x_einzelner}
+    \end{split}
+  \end{align}
+
+    \item
+  \begin{equation}
+    \braket{x^m}_n = \braket{(y+\zeta(t))^m}_{n,\text{ung}} = \sum_{j=0}^m \begin{pmatrix} m \\ j \\ \end{pmatrix} \braket{y^{m-j}}_{n,\text{ung}}\zeta^j(t) \;
+    \label{erwartungswert_x^m_einzelner}
+  \end{equation}
+  \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Impuls}
+  \textbf{Erwartungswerte}
+  \begin{itemize}
+    \item
+    \begin{align}
+      \braket{p}_n = \braket{p_y+ m\dot\zeta(t)}_{n,\text{ung}} = m\dot{\zeta}(t) \;
+      \label{erwartungswert_p_einzelner}
+    \end{align}
+
+    \item
+    \begin{equation}
+        \braket{p^m}_n = \braket{(p_y+m\dot\zeta(t))^m}_{n,\text{ung}} = \sum_{j=0}^m\begin{pmatrix} m \\ j \\ \end{pmatrix} \braket{p_y^{m-j}}_{n,\text{ung}}(m\dot\zeta(t))^j \; .
+        \label{erwartungswert_p^m_einzelner}
+    \end{equation}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Heisenberg-Unsch"arferelation}
+  \begin{align}
+    \Delta x_n\Delta p_n &= \sqrt{\braket{x^2}_n-\braket{x}^2_n}\sqrt{\braket{p^2}_n-\braket{p}^2_n} \notag\\
+    &= \sqrt{s^2(2n+1)+\zeta^2(t)-\zeta^2(t)}\sqrt{m^2\omega^2_0s^2(2n+1)+m^2\dot\zeta^2(t)-m^2\dot\zeta^2(t)} \notag\\
+    &= \frac{\hbar}{2}(2n+1) \;
+  \end{align}
+  \begin{itemize}
+    \item  $s = \sqrt{\frac{\hbar}{2m\omega_0}}$
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Energie}
+  \textbf{Erwartungswert}
+  \begin{align}
+    \braket{H}_n = E_n - L(\dot{\zeta},\zeta,t) + m\dot{\zeta}^2(t) \;
+    %hier en in extra zeile mit satz definieren evt
+  \end{align}
+
+  \textbf{Zeitliches Mittel}
+  \begin{itemize}
+    \item Beliebige Treibkraft
+    \begin{align}
+      \overline{H}_n = \epsilon_n - \omega\frac{\partial}{\partial \omega}\epsilon_n
+      = E_n - \sum_{j=-\infty}^{\infty} \left[ \frac{c_jc_{-j}}{2m(\omega_0^2-j^2\omega^2)}\left( 1-\frac{2j^2\omega^2}{(\omega_0^2-j^2\omega^2)}\right) \right] \; .
+    \end{align}
+
+    \item Sinusf"ormige Treibkraft
+    \begin{equation}
+      \overline{H}_n = E_n - \frac{A}{4m(\omega_0^2-\omega^2)}\left(1-\frac{2\omega^2}{(\omega_0^2-\omega^2)}\right) \; .
+      \label{mittleres_H}
+    \end{equation}
+  \end{itemize}
+\end{frame}
+
+
+
+
+
+\section{Gekoppelte getriebene Oszillatoren}
+\subsection{L"osung}
+\begin{frame}
+  \textbf{Hamilton-Operator}
+  \begin{equation}
+    H(t) = H(t+T) = \frac{p_1^2}{2m} + \frac{p_2^2}{2m} + \frac 1 2 kx_1^2 + \frac 1 2 kx_2^2 + \frac 1 2 \kappa(x_2-x_1)^2 - S(t)x_1 \;
+    \label{H_gekoppelt}
+  \end{equation}
+  \begin{itemize}
+    \item Kopplungsterme $\propto x_1x_2$ st"oren, kein Produktansatz m"oglich
+  \end{itemize}
+
+  \textbf{L"osung der Schr"odinger-Gleichung}
+  \begin{enumerate}
+    \item Koordinatentransformation entkoppelt $H(x_1,x_2,p_1,p_2,t)$ zu unabh"angigen $H_+(x_+,p_+,t)$ und $H_-(x_-,p_-,t)$
+    %keine kopplungsterme x+x-
+    \item Produktansatz $\Psi_{n,l}(x_+,x_-,t)=\Psi_{+,n}(x_+,t)\Psi_{-,l}(x_-,t)$
+  %\end{enumerate}
+
+    $\rightarrow$ Unabh"angige Schr"odinger-Gleichungen f"ur einzelnen (getriebenen) Oszillator
+  \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Unit"are Koordinatentransformation}
+  \textbf{Neuen Koordinaten}
+  \begin{equation}
+    x_+ = \frac{1}{\sqrt{2}}(x_2+x_1) \;,\; x_-=\frac{1}{\sqrt{2}}(x_2-x_1) \;,
+    \label{koord_trafo_x}
+  \end{equation}
+  \begin{itemize}
+    \item Folgt aus den normierten Eigenvektoren des klassischen Problems
+  \end{itemize}
+
+  \textbf{Ortsoperatoren,Impulsoperatoren}
+  \begin{itemize}
+    \item $x_1=\frac{1}{\sqrt{2}}(x_+-x_-) \;,\; x_2=\frac{1}{\sqrt{2}}(x_++x_-)$ $p_1=\frac{1}{\sqrt{2}}(p_+-p_-) \;,\; p_2=\frac{1}{\sqrt{2}}(p_++p_-)$
+    \item $x_1^2+x_@^2=x_+^2+x_-^2$ $p_1^2+p_2^2=p_+^2+p_-^2$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \textbf{Hamilton-Operator}
+  \begin{align}
+    H(t) &= H(t+T) = \frac{p_1^2}{2m} + \frac{p_2^2}{2m} + \frac 1 2 kx_1^2 + \frac 1 2 kx_2^2 + \frac 1 2 \kappa(x_2-x_1)^2 - S(t)x_1 \notag\\
+    &= \frac{p_+^2}{2m}+\frac{1}{2}kx_+^2-\frac{1}{\sqrt{2}}S(t)x_+  +
+    \frac{p_-^2}{2m}+\frac{1}{2}(k+2\kappa)x_-^2+\frac{1}{\sqrt{2}}S(t)x_- \notag\\
+    &= \frac{p_+^2}{2m}+\frac{1}{2}k_+x_+^2-S_+(t)x_+  +
+    \frac{p_-^2}{2m}+\frac{1}{2}k_-x_-^2-S_-(t)x_- \notag\\
+    &= H_+(x_+,p_+,t) + H_-(x_-,p_-,t) \;,\; H_\pm:\cal H_\pm \rightarrow \cal H_\pm \; .
+    \label{gekoppelte_H_entkoppelt}
+  \end{align}
+  \begin{itemize}
+    \item $w_+=\sqrt{\frac{k}{m}}$, $ \omega_-=\sqrt{\frac{k+2\kappa}{m}}$
+  \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Produktansatz}
+  \textbf{Unabh"angige Schr"odinger-Gleichungen}
+  \begin{align}
+    &\text i\hbar \frac{\partial}{\partial t} \Psi_{n,+}(x_+,t) = H_+(x_+,t)\Psi_{n,+}(x_+,t) \\\notag
+    &\text i\hbar \frac{\partial}{\partial t} \Psi_{n,-}(x_-,t) = H_-(x_-,t)\Psi_{n,-}(x_-,t)
+  \end{align}
+
+  \textbf{Wellenfunktion}
+  \begin{align}
+     &\Psi_{n,l}(x_+,x_-,t) = \Psi_{+,n}(x_+,t)\Psi_{-,l}(x_-,t) \notag\\
+     &=N_{n,+}H_n\left(\sqrt{\frac{m\omega_+}{\hbar}}(x_+-\zeta_+(t))\right) \exp\left(\frac{-m\omega_+}{2\hbar}(x_+-\zeta_+(t))^2\right)\notag\\
+     &\quad \cdot \exp\left[\frac{\text i}{\hbar}\left(m\dot \zeta(t)(x_+-\zeta_+(t))-E_{+,n}t+\int_0^tL_+\:\text dt'\right)\right] \quad\quad\quad\notag\\
+     &\quad \cdot N_{l,-}H_l\left(\sqrt{\frac{m\omega_-}{\hbar}}(x_--\zeta_-(t))\right) \exp\left(\frac{-m\omega_-}{2\hbar}(x_--\zeta_-(t))^2\right)\notag\\
+     &\quad \cdot \exp\left[\frac{\text i}{\hbar}\left(m\dot \zeta(t)(x_--\zeta_-(t))-E_{-,l}t+\int_0^tL_-\:\text dt'\right)\right] \;,\; \Psi_\pm \in \cal H_\pm
+   \end{align}
+
+\end{frame}
 
 
 
